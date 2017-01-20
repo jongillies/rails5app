@@ -21,10 +21,12 @@
           <%= version.event %></strong>
         </td>
         <td>
+<% if version.changeset %>
           <% version.changeset.each do |field, change| %>
               <% next if field == 'updated_at' %>
               <%= "#{field} old: #{change[0]}" %><BR>
               <%= "#{field} new: #{change[1]}" %>
+          <% end %>
           <% end %>
         </td>
       </tr>
