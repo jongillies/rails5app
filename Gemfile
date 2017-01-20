@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.3.1'
@@ -12,11 +12,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'ransack'
-gem 'paper_trail'
-# gem 'paginate'
-gem 'kaminari'
-gem 'cancancan'
+gem 'ransack', '~> 1.8.2'
+gem 'paper_trail', '~> 6.0.2'
+gem 'kaminari', '~> 0.17.0'
+gem 'cancancan', '~> 1.15.0'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
