@@ -18,6 +18,8 @@ module Myapp
         controller_specs: false,
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
+      g.template_engine :custom
+      g.fallbacks[:custom] = :erb # or haml/slim etc
     end
 
     # Settings in config/environments/* take precedence over those specified here.
