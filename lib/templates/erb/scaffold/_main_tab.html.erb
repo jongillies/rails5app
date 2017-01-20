@@ -1,0 +1,10 @@
+<table class="table table-striped">
+
+    <% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <tr>
+        <td><strong><%= attribute.human_name %>:</strong></td>
+        <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+      </tr>
+    <% end %>
+
+</table>

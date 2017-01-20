@@ -1,0 +1,30 @@
+<%% content_for :header_extras do %>
+    <span class="badge badge-inverse pull-right">
+    <%%= link_to 'Download JSON', "#{<%= singular_table_name %>_url(@<%= singular_table_name %>)}.json", target: :blank %>
+</span>
+
+<%% end %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#main_tab" data-toggle="tab">Details</a></li>
+  <li><a href="#audit_tab" data-toggle="tab">Audit Trail</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="main_tab">
+    <%%= render :partial => 'main_tab' %>
+  </div>
+  <div class="tab-pane" id="audit_tab">
+    <%%= render :partial => 'audit_tab' %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%%= link_to t('.back', :default => t('helpers.links.back')), <%= plural_table_name %>_path, :class => 'btn
+  btn-primary' %>
+  <%% if can? :edit, :<%= singular_table_name %> %>
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary' %>
+  <%% end %>
+  <%% if can? :destroy, :<%= singular_table_name %> %>
+    <%%= link_to 'Delete', @<%= singular_table_name %>, :confirm => 'Are you sure?', method: :delete, :class => 'btn btn-primary' %>
+  <%% end %>
+</div>
