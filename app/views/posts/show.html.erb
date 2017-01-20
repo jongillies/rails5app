@@ -1,0 +1,30 @@
+<% content_for :header_extras do %>
+    <span class="badge badge-inverse pull-right">
+    <%= link_to 'Download JSON', "#{post_url(@post)}.json", target: :blank %>
+</span>
+
+<% end %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#main_tab" data-toggle="tab">Details</a></li>
+  <li><a href="#audit_tab" data-toggle="tab">Audit Trail</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="main_tab">
+    <%= render :partial => 'main_tab' %>
+  </div>
+  <div class="tab-pane" id="audit_tab">
+    <%= render :partial => 'audit_tab' %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t('helpers.links.back')), posts_path, :class => 'btn
+  btn-primary' %>
+  <% if can? :edit, :post %>
+    <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary' %>
+  <% end %>
+  <% if can? :destroy, :post %>
+    <%= link_to 'Delete', @post, :confirm => 'Are you sure?', method: :delete, :class => 'btn btn-primary' %>
+  <% end %>
+</div>
