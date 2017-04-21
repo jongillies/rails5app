@@ -9,7 +9,7 @@
   <%% content_for :header_extras do %>
   <span class="badge badge-inverse pull-right">
     <%%= link_to 'Download JSON', "#{<%= singular_table_name %>_url(@<%= singular_table_name %>)}.json", target: :blank %>
-</span>
+  </span>
 
   <%% end %>
 
@@ -27,14 +27,13 @@
   </div>
 
   <div class="form-actions">
-    <%%= link_to t('.back', :default => t('helpers.links.back')), <%= plural_table_name %>_path, :class => 'btn
+    <%%= link_to t('.back', :default => t('helpers.links.back')), <%= plural_table_name %>_path, class: 'btn
     btn-primary' %>
     <%% if can? :edit, :<%= singular_table_name %> %>
-    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary'
-    %>
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' %>
     <%% end %>
     <%% if can? :destroy, :<%= singular_table_name %> %>
-    <%%= link_to 'Delete', @<%= singular_table_name %>, :confirm => 'Are you sure?', method: :delete, :class => 'btn
+    <%%= link_to 'Delete', @<%= singular_table_name %>, confirm: 'Are you sure?', method: :delete, class: 'btn
     btn-primary' %>
     <%% end %>
   </div>
