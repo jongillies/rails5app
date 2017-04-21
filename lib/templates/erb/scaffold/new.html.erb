@@ -1,1 +1,10 @@
-<%%= render 'form' %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><%= singular_table_name.titleize.gsub(' ', '') %>
+        <small>Subheading</small>
+      </h1>
+    </div>
+  </div>
+  <%%= render 'form' %>
+</div>
