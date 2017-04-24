@@ -14,6 +14,13 @@
       <%%= f.text_field :name_cont, class: 'string form-control' %>
       <%%= f.submit 'Search', name: nil, class: 'btn btn-primary' %>
       <%%= link_to 'Clear', eval("#{controller_name.pluralize}_path"), class: 'btn btn-primary', id: :q_reset %>
+      <span class="btn btn-primary-inverse pull-right">
+      <%% if @search %>
+          <%%= link_to 'Download JSON', "#{root_url}#{controller_name.downcase.pluralize}.json", target: :blank %>
+      <%% elsif @enable_json %>
+          <%%= link_to 'Download JSON', "#{root_url}#{controller.action_name}.json", target: :blank %>
+      <%% end %>
+      </span>
       <%% if can? :create, <%= singular_table_name.titleize.gsub(' ', '') %> %>
           <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path, class: 'btn btn-primary pull-right', id: 'New' %>
       <%% end %>

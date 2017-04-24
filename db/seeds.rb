@@ -7,3 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
+
+(1..76).each do |i|
+  Post.create(name: "This is post #{i}", body: "This is the body of post #{i}")
+end

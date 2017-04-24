@@ -1,0 +1,36 @@
+<table class="table table-striped">
+
+  <tr>
+    <td><strong>Created at:</strong></td>
+    <td>
+      <%= @post.created_at.to_formatted_s(:long) %>
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Updated at:</strong></td>
+    <td>
+      <%= @post.updated_at.to_formatted_s(:long) %>
+    </td>
+  </tr>
+
+  <% @post.versions.each do |version| %>
+      <tr>
+
+        <td><strong><%= l(version.created_at, format: "%-d.%m.%Y %H:%M:%S %Z") %>
+          <%= version.event %></strong>
+        </td>
+        <td>
+          <% if version.changeset %>
+            <% version.changeset.each do |field, change| %>
+                <% next if field == 'updated_at' %>
+                <%= "#{field} old: #{change[0]}" %><BR>
+                <%= "#{field} new: #{change[1]}" %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+
+
+</table>
