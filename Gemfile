@@ -33,7 +33,7 @@ gem 'bootstrap-sass'
 gem 'bourbon'
 gem 'devise'
 gem 'high_voltage'
-gem 'mysql2', '~> 0.3.18'
+gem 'pg'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
