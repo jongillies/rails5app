@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.3.3'
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.1.1'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -28,7 +28,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 #gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'administrate'
+#gem 'administrate'
 gem 'bootstrap-sass'
 gem 'bourbon'
 gem 'devise'
