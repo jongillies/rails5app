@@ -12,18 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20170424205127) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "blogs", force: :cascade do |t|
     t.string   "name"
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
     t.string   "name"
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tests", force: :cascade do |t|
@@ -52,9 +55,9 @@ ActiveRecord::Schema.define(version: 20170424205127) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  limit: 191,        null: false
-    t.integer  "item_id",                       null: false
-    t.string   "event",                         null: false
+    t.string   "item_type",  limit: 191, null: false
+    t.integer  "item_id",                null: false
+    t.string   "event",                  null: false
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
