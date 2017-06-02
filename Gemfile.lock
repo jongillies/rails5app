@@ -256,6 +256,7 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    semver (1.0.1)
     shellany (0.0.1)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
@@ -337,6 +338,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  semver
   simple_form
   spring
   spring-commands-rspec
@@ -349,4 +351,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
