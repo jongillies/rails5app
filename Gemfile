@@ -18,6 +18,7 @@ gem 'paper_trail'
 # gem 'paginate'
 gem 'kaminari'
 gem 'cancancan'
+gem 'rolify'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'binding_of_caller'
