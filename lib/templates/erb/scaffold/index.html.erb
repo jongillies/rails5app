@@ -16,14 +16,14 @@
       <%%= link_to 'Clear', eval("#{controller_name.pluralize}_path"), class: 'btn btn-primary', id: :q_reset %>
       <span class="btn btn-primary-inverse pull-right">
       <%% if @search %>
-          <%%= link_to 'Download JSON', "#{root_url}#{controller_name.downcase.pluralize}.json", target: :blank %>
+          <%%= link_to 'Download JSON', "#{root_url}#{controller_name.downcase.pluralize}.json", target: :blank, class: 'btn btn-primary' %>
       <%% elsif @enable_json %>
-          <%%= link_to 'Download JSON', "#{root_url}#{controller.action_name}.json", target: :blank %>
+          <%%= link_to 'Download JSON', "#{root_url}#{controller.action_name}.json", target: :blank, class: 'btn btn-primary' %>
+      <%% end %>
+      <%% if can? :create, <%= singular_table_name.titleize.gsub(' ', '') %> %>
+          <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path, class: 'btn btn-primary', id: 'New' %>
       <%% end %>
       </span>
-      <%% if can? :create, <%= singular_table_name.titleize.gsub(' ', '') %> %>
-          <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path, class: 'btn btn-primary pull-right', id: 'New' %>
-      <%% end %>
   <%% end %>
 
   <table class="table table-striped">

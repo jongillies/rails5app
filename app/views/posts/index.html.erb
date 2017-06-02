@@ -16,28 +16,28 @@
       <%= link_to 'Clear', eval("#{controller_name.pluralize}_path"), class: 'btn btn-primary', id: :q_reset %>
       <span class="btn btn-primary-inverse pull-right">
       <% if @search %>
-          <%= link_to 'Download JSON', "#{root_url}#{controller_name.downcase.pluralize}.json", target: :blank %>
+          <%= link_to 'Download JSON', "#{root_url}#{controller_name.downcase.pluralize}.json", target: :blank, class: 'btn btn-primary' %>
       <% elsif @enable_json %>
-          <%= link_to 'Download JSON', "#{root_url}#{controller.action_name}.json", target: :blank %>
+          <%= link_to 'Download JSON', "#{root_url}#{controller.action_name}.json", target: :blank, class: 'btn btn-primary' %>
+      <% end %>
+        <% if can? :create, Post %>
+          <%= link_to 'New Post', new_post_path, class: 'btn btn-primary', id: 'New' %>
       <% end %>
       </span>
-      <% if can? :create, Post %>
-          <%= link_to 'New Post', new_post_path, class: 'btn btn-primary pull-right', id: 'New' %>
-      <% end %>
   <% end %>
 
   <table class="table table-striped">
     <thead>
     <tr>
-      
+
       <th>
         <%= sort_link @search, :name, 'Name' %>
       </th>
-      
+
       <th>
         <%= sort_link @search, :body, 'Body' %>
       </th>
-      
+
     </tr>
     </thead>
 
@@ -46,13 +46,13 @@
 
         <tr>
 
-          
+
           <td><%= link_to post.name, post %></td>
 
-          
+
           <td><%= link_to post.body, post %></td>
 
-          
+
         </tr>
 
     <% end %>
