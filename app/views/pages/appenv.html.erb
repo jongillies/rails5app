@@ -45,7 +45,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @gems.sort.each do |key, value| %>
+      <% Gem.loaded_specs.sort.each do |key, value| %>
           <tr>
             <td><%= key %></td>
             <td><%= value.version %></td>
@@ -59,18 +59,6 @@
   <div class="tab-pane" id="tab-database-stats">
 
     <tbody>
-    <% db_stats.each do |table, data| %>
-        <table class="table table-striped">
-          <h3><%= table %></h3>
-          <% data.each do |k, v| %>
-              <tr>
-                <td><%= k.downcase %></td>
-                <td><%= v %></td>
-              </tr>
-          <% end %>
-        </table>
-    <% end %>
-
     </tbody>
 
   </div>
@@ -100,6 +88,7 @@
     <table class="table table-striped">
 
       <tr>
+        <td><%= current_user.email %></td>
         <td>Roles:</td>
         <td>
           <% if current_user %>

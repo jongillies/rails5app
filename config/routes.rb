@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
+
+  get "/pages/*id" => 'pages#show', as: :page, format: false
+
 end
